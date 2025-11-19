@@ -1,0 +1,26 @@
+{
+  "name": "clitriviabeast",
+  "version": "1.0.0",
+  "description": "A CLI-based trivia game to demonstrate foundational JavaScript concepts, such as handling user input, managing program flow, working with arrays and objects, and building interactive terminal-based applications.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfPoak/CLITriviaBeast.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProfPoak/CLITriviaBeast/issues"
+  },
+  "homepage": "https://github.com/ProfPoak/CLITriviaBeast#readme",
+  "dependencies": {
+    "@inquirer/prompts": "^7.5.1",
+    "chalk": "^4.1.2",
+    "commander": "^13.1.0"
+  }
+}
