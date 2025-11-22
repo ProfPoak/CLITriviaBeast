@@ -1,5 +1,5 @@
-// Timer for question time limit
 
+// Timer for question time limit
 export function questionTimer(timeLimit) {
     const timerPromise = new Promise(resolve => {
         let timeLeft = timeLimit
@@ -15,4 +15,14 @@ export function questionTimer(timeLimit) {
 
     return timerPromise
     
+}
+
+// Conversion for total time elapsed during game
+export function secondsConversion(trackTime) {
+    const totalSeconds = trackTime.reduce((total, num) => {
+            return total + num
+        }, 0)
+    const minutes = Math.floor(totalSeconds / 60)
+    const seconds = totalSeconds % 60
+    return `${minutes}:${seconds}`
 }

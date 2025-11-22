@@ -1,7 +1,7 @@
 // Game questions
 export const triviaQuestions = [{
     question: "What were corgis bred to do?",
-    answers: ["Herding", "Splooting", "Hunting", "Swimming"],
+    answers: ["Herd", "Sploot", "Hunt", "Swim"],
     correctAnswer: 0,
     timeLimit: 10
 },
@@ -12,7 +12,7 @@ export const triviaQuestions = [{
     timeLimit: 10  
 },
 {
-    question: "What was the most popular dog breed in the United States in 2024",
+    question: "In 2024, what was the most popular dog breed in the United States?",
     answers: ["Golden Retriever", "Goldendoodle", "Corgi", "French Bulldog"],
     correctAnswer: 3,
     timeLimit: 10  
@@ -40,4 +40,4 @@ export const scoreKeeper = [
 ]
 
 //Total game time
-export const trackTime = []
+export const trackTime = [0]

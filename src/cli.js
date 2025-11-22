@@ -2,7 +2,8 @@ import { number, select } from '@inquirer/prompts'
 import chalk from 'chalk'
 import {triviaQuestions, scoreKeeper, trackTime} from './gameState.js'
 import { startGame } from './gameLogic.js'
-
+import { secondsConversion } from './timers.js'
+// Function for displaying a question and receiving an answer
 export async function displayQuestion(triviaQuestion) {
     const userAnswer = await select({
         message: triviaQuestion.question,
@@ -14,7 +15,7 @@ export async function displayQuestion(triviaQuestion) {
 
     return userAnswer
 }
-
+// Takes received input from the displayed question and converts it into "correct" or "incorrect feedback". Sends a tally to the scoreKeeper
 export function questionFeedback(userAnswer, triviaQuestion) {
     if (userAnswer === triviaQuestion.correctAnswer) {
         console.log(chalk.green("Correct!"))
@@ -25,15 +26,10 @@ export function questionFeedback(userAnswer, triviaQuestion) {
         scoreKeeper[0].incorrect ++
     }
 }
-
+// Provides options for the final menu after a game has been completed
 export async function finalMenu(scoreKeeper) {
-    const totalSeconds = trackTime.reduce((total, num) => {
-        return total + num
-    }, 0)
-    const minutes = Math.floor(totalSeconds / 60)
-    const seconds = totalSeconds % 60
-
-    console.log(chalk.cyan(`Total Time: ${minutes}:${seconds}`))
+    
+    console.log(chalk.cyan(`Total Time: ${secondsConversion(trackTime)}`))
 
     console.log(chalk.cyan(`Final Score: ${scoreKeeper[0].correct}/${triviaQuestions.length}`))
 
@@ -46,13 +42,14 @@ export async function finalMenu(scoreKeeper) {
     })
 
     switch (finalInput) {
-        case "replay":
+        case "replay": // resets trackers and starts a new loop when a player wants to replay the game
             scoreKeeper[0].correct = 0
             scoreKeeper[0].incorrect = 0
+            trackTime.length = [0]
             startGame()
             break
 
-        case "quit":
+        case "quit": // exits the game
             console.log(chalk.cyan("Goodbye!"))
             process.exit(0)
     }
