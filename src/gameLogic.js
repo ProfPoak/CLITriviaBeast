@@ -1,3 +1,4 @@
+import chalk from "chalk"
 import { displayQuestion, questionFeedback, finalMenu } from "./cli.js"
 import { triviaQuestions, scoreKeeper, trackTime } from "./gameState.js"
 import { questionTimer } from "./timer.js"
@@ -11,19 +12,21 @@ export async function startGame() {
         const currentQuestion = triviaQuestions[i]
         const timeLimit = currentQuestion.timeLimit
 
+        console.log(chalk.cyan(`Time limit: ${timeLimit} seconds`))
+
         const userAnswer = await Promise.race([
             displayQuestion(currentQuestion),
             questionTimer(timeLimit)
         ])
 
         if(userAnswer === null) {
-            console.log(chalk.orange("Time's up! Moving on"))
+            console.log(chalk.yellow("Time's up! Moving on"))
         }
         else{
         questionFeedback(userAnswer, currentQuestion)
         }
         
-        await new Promise(resolve => setTimeout (resolve, 2000))
+        await new Promise(resolve => setTimeout (resolve, 1000))
     }
 
     clearInterval(timerId)
