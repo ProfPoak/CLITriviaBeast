@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A CLI-based trivia game to demonstrate foundational JavaScript concepts, such as handling user input, managing program flow, working with arrays and objects, and building interactive terminal-based applications.",
   "main": "index.js",
+  "bin": {
+    "TriviaBeast": "./bin/index.js"
+  },
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
