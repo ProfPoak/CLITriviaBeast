@@ -1,3 +1,5 @@
+// Functions in this file provide or support the timing functions in the game 
+
 
 // Timer for question time limit
 export function questionTimer(timeLimit) {

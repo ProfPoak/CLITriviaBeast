@@ -2,8 +2,9 @@ import chalk from "chalk"
 import { displayQuestion, questionFeedback, finalMenu } from "./cli.js"
 import { triviaQuestions, scoreKeeper, trackTime } from "./gameState.js"
 import { questionTimer } from "./timers.js"
+//This file holds the logic that combines and runs the various functions in order to create a game instance
 
-// Logic used for running a game
+
 export async function startGame() {
     const timerId = setInterval(() => {
         trackTime.push(1)

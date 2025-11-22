@@ -1,3 +1,5 @@
+//This file is dedicated to tracking game data
+
 // Game questions
 export const triviaQuestions = [{
     question: "What were corgis bred to do?",
@@ -40,4 +42,4 @@ export const scoreKeeper = [
 ]
 
 //Total game time
-export const trackTime = [0]
+export const trackTime = []

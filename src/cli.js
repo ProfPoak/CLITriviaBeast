@@ -3,6 +3,9 @@ import chalk from 'chalk'
 import {triviaQuestions, scoreKeeper, trackTime} from './gameState.js'
 import { startGame } from './gameLogic.js'
 import { secondsConversion } from './timers.js'
+//Functions in this file handle the core display and input functions of the game
+
+
 // Function for displaying a question and receiving an answer
 export async function displayQuestion(triviaQuestion) {
     const userAnswer = await select({
@@ -45,7 +48,7 @@ export async function finalMenu(scoreKeeper) {
         case "replay": // resets trackers and starts a new loop when a player wants to replay the game
             scoreKeeper[0].correct = 0
             scoreKeeper[0].incorrect = 0
-            trackTime.length = [0]
+            trackTime.length = 0
             startGame()
             break
 
