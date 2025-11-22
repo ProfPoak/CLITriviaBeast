@@ -5,6 +5,27 @@ import { startGame } from './gameLogic.js'
 import { secondsConversion } from './timers.js'
 //Functions in this file handle the core display and input functions of the game
 
+// Function to display game menu
+export async function launchMenu() {
+    const initialInput = await select ({
+        message: "Welcome to Trivia Beast! Would you like to play?",
+        choices: [
+            {name: "Start Game", value: "start"},
+            {name: "Quit", value: "quit"}
+        ]
+    })
+    
+    switch (initialInput) {
+        case "start": // Starts game
+            startGame()
+            break
+
+        case "quit": // exits the game
+            console.log(chalk.cyan("Goodbye!"))
+            process.exit(0)
+    }
+}
+
 
 // Function for displaying a question and receiving an answer
 export async function displayQuestion(triviaQuestion) {
@@ -18,6 +39,7 @@ export async function displayQuestion(triviaQuestion) {
 
     return userAnswer
 }
+
 // Takes received input from the displayed question and converts it into "correct" or "incorrect feedback". Sends a tally to the scoreKeeper
 export function questionFeedback(userAnswer, triviaQuestion) {
     if (userAnswer === triviaQuestion.correctAnswer) {
@@ -29,6 +51,7 @@ export function questionFeedback(userAnswer, triviaQuestion) {
         scoreKeeper[0].incorrect ++
     }
 }
+
 // Provides options for the final menu after a game has been completed
 export async function finalMenu(scoreKeeper) {
     

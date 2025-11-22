@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import { program } from "commander";
-import { startGame } from "../src/gameLogic.js";
+import { launchMenu } from "../src/cli.js";
 
-startGame()
+launchMenu()
+
 program.parse(process.argv);
